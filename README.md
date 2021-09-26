@@ -1,2 +1,2 @@
 # PlayFab-Achievement-Leaderboard
-Demo project of achievement and leaderboard functionality based on PlayFab game service.
+This demo implements simple achievement and leaderboard feature using PlayFab game service.
