@@ -2,9 +2,10 @@
 
 - If you have any questions/comments, please visit [**Pico Developer Answers**](https://devanswers.pico-interactive.com/) and raise your question there.
 
-## Unity Versions：
+## Environment：
 
-- 2019.4.24f1 and later
+- Unity 2019.4.24f1
+- Pico UnityXR platform SDK v1.2.4
 
 ## Description：
 
