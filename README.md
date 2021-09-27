@@ -8,4 +8,8 @@
 
 ## Description：
 
-   - This demo shows how to implement achievement and leaderboard features using PlayFab game service.
+- This demo shows how to implement achievement and leaderboard features using PlayFab game service.
+
+## Screenshot：
+
+![Screenshot_com DefaultCompany TankArena_2021 09 27-10 05 05](https://user-images.githubusercontent.com/46362299/134836099-c71f5f19-d45b-44d9-9e94-fc2ff459cf44.jpeg)
