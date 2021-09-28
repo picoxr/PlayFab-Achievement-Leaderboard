@@ -13,7 +13,7 @@ public class AchievementManager : MonoBehaviour
 
     private Dictionary<string, bool> m_AchievementList = new Dictionary<string, bool>();
 
-    private const string ACHIEVEMENT_HIGH_SCORE_100 = "achievement_highscore_100";
+    private const string ACHIEVEMENT_HIGH_SCORE_500 = "achievement_highscore_500";
     private const string ACHIEVEMENT_LEVEL_COMPLETE = "achievement_levelcompleted";
     private bool NeedUpdateAchievement = false;
 
@@ -54,7 +54,7 @@ public class AchievementManager : MonoBehaviour
             {
                 //TextAchievement.text += item.Key + " = " + item.Value + "\n";
 
-                if (item.Key == ACHIEVEMENT_HIGH_SCORE_100)
+                if (item.Key == ACHIEVEMENT_HIGH_SCORE_500)
                 {
                     ImageAchievementScore.color = item.Value ?Color.white : Color.grey;
                 }

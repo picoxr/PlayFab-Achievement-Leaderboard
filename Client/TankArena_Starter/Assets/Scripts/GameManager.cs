@@ -170,7 +170,7 @@ public class GameManager : MonoBehaviour
         WeakWallCount--;
         if (WeakWallCount ==0)
         {
-            m_GameService.UpdateLevelAchievement("Tank");
+            //m_GameService.UpdateLevelAchievement("Tank");
         }
 
         m_CurrentScore += ADD_SCORE;
