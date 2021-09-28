@@ -239,7 +239,9 @@ handlers.checkLevelCompleteForAchievement = function (args){
         var achivementList = playerData.Data["UserAchievementList"].Value;
         var jsonAchievementList = JSON.parse(achivementList);
         
-        jsonAchievementList.achievement_levelcompleted = true;
+        if(jsonAchievementList.achievement_levelcompleted == false){
+            jsonAchievementList.achievement_levelcompleted = true;
+        }
         achivementList = JSON.stringify(jsonAchievementList);
         
         var UpdateLevelAchievementResult = server.UpdateUserReadOnlyData({
