@@ -7,6 +7,11 @@
 - Unity 2019.4.24f1
 - Pico UnityXR platform SDK v1.2.4
 
+## Applicable devices:
+
+- Neo 3 series
+- Neo 2 series
+
 ## Description：
 
 - This demo shows how to implement achievement and leaderboard features using PlayFab game service.
