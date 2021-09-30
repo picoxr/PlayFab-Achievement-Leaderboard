@@ -49,7 +49,7 @@ public class GameServiceManager : MonoBehaviour
             Please change the titleId below to your own titleId from PlayFab Game Manager.
             If you have already set the value in the Editor Extensions, this can be skipped.
             */
-            //Zack TestGame titleID should be FB462
+            //Substitute your own titleId in the PlayFab console
             PlayFabSettings.staticSettings.TitleId = "FB462";
         }
         var request = new LoginWithCustomIDRequest {
