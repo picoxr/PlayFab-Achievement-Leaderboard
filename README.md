@@ -14,7 +14,7 @@
 ## Description：
 
 - This demo shows how to implement achievement and leaderboard features using PlayFab game service.
-- To Run the demo on your own Title/Studio, modify the Title ID here: [LoginPlayer](https://github.com/picoxr/PlayFab-Achievement-Leaderboard/blob/228d0ef91923d1640e6b58f4c2fad9608cca852b/Client/TankArena_Starter/Assets/Scripts/GameServiceManager.cs#L53)
+- To use PlayFab function in your own application according to this demo, you need to modify the Title ID with your own PlayFab title ID here: [LoginPlayer](https://github.com/picoxr/PlayFab-Achievement-Leaderboard/blob/228d0ef91923d1640e6b58f4c2fad9608cca852b/Client/TankArena_Starter/Assets/Scripts/GameServiceManager.cs#L53)
 
 ## Screenshot：
 
