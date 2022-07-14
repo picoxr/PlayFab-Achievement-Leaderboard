@@ -22,7 +22,7 @@ public class SendUserMessage : MonoBehaviour
     {
         //JsonData jsrr = JsonMapper.ToObject(LoginInfo);
 
-        LoginSDK.GetUserAPI();
+        //LoginSDK.GetUserAPI();
 
         Debug.Log("login callback:");
     }
@@ -47,6 +47,6 @@ public class SendUserMessage : MonoBehaviour
 
     public void ActivityForResultCallback(string activity)
     {
-        PicoPaymentSDK.jo.Call("authCallback", activity);
+        //PicoPaymentSDK.jo.Call("authCallback", activity);
     }
 }

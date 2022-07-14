@@ -34,7 +34,10 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using PlayFab;
 using PlayFab.ClientModels;
-
+using Pico.Platform.Models;
+using Pico.Platform;
+using System;
+using System.Text;
 
 public class GameManager : MonoBehaviour
 {
@@ -71,7 +74,6 @@ public class GameManager : MonoBehaviour
         m_PicoUserMessage = GameObject.Find("PicoPayment").GetComponent<SendUserMessage>();
         m_GameService = GameObject.Find("GameServiceManager").GetComponent<GameServiceManager>();
         playerTank = GameObject.FindGameObjectWithTag("Player");
-        m_PicoUserMessage.DELEGATE_GET_USER_INFO_RESULT += LoginToGameService;
 
         loadingScreen.SetActive(true);
         GameUIScreen.SetActive(false);
@@ -79,15 +81,69 @@ public class GameManager : MonoBehaviour
         WeakWallCount = GameObject.FindGameObjectsWithTag("WeakWall").Length;
 
         // first login to Pico account
-        Unity.XR.PXR.LoginSDK.Login();
+        //Unity.XR.PXR.LoginSDK.Login();
+        try
+        {
+            CoreService.AsyncInitialize().OnComplete(m =>
+            {
+                if (m.IsError)
+                {
+                    Debug.LogError($"Async initialize failed: code={m.GetError().Code} message={m.GetError().Message}");
+                    return;
+                }
 
+                if (m.Data != PlatformInitializeResult.Success && m.Data != PlatformInitializeResult.AlreadyInitialized)
+                {
+                    Debug.LogError($"Async initialize failed: result={m.Data}");
+                    return;
+                }
+
+                Debug.Log("AsyncInitialize Successfully");
+                GetLoggedInUser();
+
+            });
+        }
+        catch (Exception e)
+        {
+        Debug.LogException(e);
+            return;
+        }
+        
+    
 
         // login the with Pico openID, currently the input value is fake one
         m_GameService.DELEGATE_LOGIN_SUCCESS += this.UpdatePlayerName;
         m_GameService.DELEGATE_GET_USER_SCORE_RESULT += this.UpdatePlayerScore;
         
     }
-    
+
+    void GetLoggedInUser()
+    {
+        Debug.Log("Trying to get currently logged in user");
+        UserService.GetLoggedInUser().OnComplete(msg =>
+        {
+            if (!msg.IsError)
+            {
+                Debug.Log("Received get user success");
+                User user = msg.Data;
+                Debug.Log($"User: {User2String(user)}");
+                Debug.Log(JsonUtility.ToJson(user));
+                LoginToGameService(user.ID, user.DisplayName);
+
+            }
+            else
+            {
+                Debug.LogError("Received get user error");
+                Error error = msg.GetError();
+                Debug.LogError("Error: " + error.Message);
+            }
+        });
+    }
+
+    string User2String(User user)
+    {
+        return $"name={user.DisplayName},ID={user.ID},headImage={user.ImageUrl},presenceStatus={user.PresenceStatus}";
+    }
 
     void Update()
     {
@@ -126,6 +182,7 @@ public class GameManager : MonoBehaviour
         playerRB.isKinematic = true;
         playerRB.isKinematic = false;
     }
+
 
     private void UpdatePlayerName(LoginResult result)
     {
