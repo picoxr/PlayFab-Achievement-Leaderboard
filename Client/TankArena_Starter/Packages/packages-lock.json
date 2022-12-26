@@ -148,7 +148,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.xr.picoxr": {
-      "version": "file:Pico Unity Integration SDK-2.0.5",
+      "version": "file:PICO Unity Integration SDK v212",
       "depth": 0,
       "source": "embedded",
       "dependencies": {

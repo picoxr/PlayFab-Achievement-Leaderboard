@@ -32,7 +32,6 @@
       <meta-data android:name="pico_app_key" android:value="092abc2f279538671c402af4d50c566b" />
       <meta-data android:name="pico_pay_key" android:value="31bcfd0215531214ab021498b5cd56a6" />
       <meta-data android:name="pico_redirectUrl" android:value="http://www.picovr.com" />
-      <!--Scope of authorization-->
       <meta-data android:name="pico_scope" android:value="get_user_info" />
       <meta-data android:name="com.pvr.instructionset" android:value="32" />
         <activity android:excludeFromRecents="true" android:exported="true" android:launchMode="singleTask" android:name="com.pico.loginpaysdk.auth.TransferStationActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar">
